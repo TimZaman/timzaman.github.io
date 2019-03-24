@@ -1,10 +1,10 @@
 ---
-title: Child of Test
-parent: Test
+title: Note 1
+parent: Notebook
 has_children: true
 nav_order: 1
 ---
 
-# Child of test
+# Polaroids From Space
 
 I am a child page.
