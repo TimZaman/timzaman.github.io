@@ -8,4 +8,10 @@ permalink: /space-cameras
 
 # Space Cameras
 
-Test this
+*2010-2013*<br />
+
+![Image](docs/polaroids-from-space/polaroids-from-space-header.jpg)
+
+-----
+
+TODO(tzaman): Fill this in with the space camera missions.
