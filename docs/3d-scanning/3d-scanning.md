@@ -30,15 +30,17 @@ Although such a print might fool the regular observer, anyone with knowledge of 
 
 ## Scanning Equipment
 The scanning equipment is actually very straightforward, and only consists out of these parts. The rest of the parts is just cables and stuff to make the camera move in X and Y.
-Capture device	Nikon D800E
-Lenses	Nikon 80mm PC-E scheimpflug & polarisation filters
-Projector	
+
+|Capture device | (2x) Nikon D800E   |
+|Lenses         | Nikon 80mm PC-E scheimpflug & polarisation filters      |
+|Projector      | Optoma PK301 Pico-Projector fitted with a crossed polarisation filter |
 
 ## 3D Scanning
 
 See my thesis (linked to earlier) for comprehensive information. We used a hybrid system using stereo vision (2 camera’s) and fringe projection (using a projector). This system gives us unrivaled detail and capture speed, capturing 40 million points per capture, each point in 3-D space (XYZ) and in full color (RGB). Multiple captures allows us to capture the Jewish Bride for instance, a work that spans 160×120 cm; giving us more than a billion XYZ/RGB points. This is all done with proprietary camera’s that anyone can buy off-the shelf. 
 
-![Image](docs/3d-scanning/3d-scan-setup-rembrandt.jpg)
+![Image](docs/3d-scanning/3d-scan-setup-rembrandt2.jpg)
+*Me and the setup scanning a Rembrandt at the Mauritshuis (The Hague, NL)*
 
 ## 3D Printing
 
