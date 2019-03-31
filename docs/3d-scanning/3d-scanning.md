@@ -9,6 +9,9 @@ permalink: /3d-scanning-paintings
 
 *2013*<br />
 
+![Image](docs/3d-scanning/3d-scanning-schematic-sunday-times.jpg)
+*Schematic of our scanning setup (c) Sunday Times*
+
 -----
 
 For my MSc thesis [(pdf)](https://repository.tudelft.nl/islandora/object/uuid:bd71a192-eaa8-4f90-8778-b18f86cac79c)
@@ -20,9 +23,6 @@ not interested in any exploitation of this project, I moved on after I did the t
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EXRt64HEBrk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Paintings are not unlike sculptures, paint as a material has a huge impact on the way a painting looks. By illuminating a painting with light, it automatically gives highlights and shadows that form the way we see it. This is especially the case in the of late Rembrandt paintings and Van Gogh. This fact is often overlooked or not fully appreciated. In order to capture this topography convincingly, we needed to capture it in a very high resolution, which is already a problem for most 3-D scanners. Furthermore, the topography of the paint is very small compared to the size of the canvas and we want to capture color at the same time as we capture depth. This depth data is relevant for conservators and restorers (think of status-reports or analytical information about the craquela) and could in principle be used for exploitation using the museum shops (note that we as a university do not pursue this).
-
-![Image](docs/3d-scanning/3d-scanning-schematic-sunday-times.jpg)
-*Schematic of our scanning setup (c) Sunday Times*
 
 Although such a print might fool the regular observer, anyone with knowledge of paintings will immediately see that this is not painted with a brush. (Anyone with a microscope will see its drops painted mechanically with a nozzle.) If you consider such a print light-years ahead of a common poster reproduction, it is still light-years away from the original. We noticed that things like glossiness and transparency that are in each painting are very distinguishing in the original, and we are not yet able to reproduce. We are now working on further research in trying to model these facts as well. The goal of making such accurate reproductions, and comparing them with the original, is that we learn to understand exactly what we are looking at, and why it looks the way it does. What we learned so far is that there are many more elements that make the painting look the way it does, a part from the color and topography, that have an importance that we did not anticipate.
 
@@ -63,13 +63,9 @@ Printer and 3D printing technology (c) 2013 Océ (Canon Group). I was not direct
 
 ## Resources
 
-[MSc Thesis(pdf)](https://repository.tudelft.nl/islandora/object/uuid:bd71a192-eaa8-4f90-8778-b18f86cac79c)
-
-TODO(tzaman): Add publications around this
-
-TODO(tzaman): Add Matlab code
-
-TODO(tzaman): Add C++ code
-
-TODO(tzaman): Add pcb (gerber) files
+* [MSc Thesis(pdf)](https://repository.tudelft.nl/islandora/object/uuid:bd71a192-eaa8-4f90-8778-b18f86cac79c)
+* TODO(tzaman): Add publications around this
+* TODO(tzaman): Add Matlab code
+* TODO(tzaman): Add C++ code
+* TODO(tzaman): Add pcb (gerber) files
 

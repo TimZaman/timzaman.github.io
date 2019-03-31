@@ -9,6 +9,8 @@ permalink: /rl-dota-bot
 
 *Dec 2018 - Mar 2019*<br />
 
+![Image](https://github.com/TimZaman/dotaservice/blob/master/demo.gif?raw=true)
+
 -----
 
 ## Introduction
@@ -57,3 +59,9 @@ The optimizer trains in [A3C](https://arxiv.org/pdf/1602.01783) mode, it's async
 off-policy. It every time the policy is updated, it is sent to the agents immediatelly, which then
 adopt it, even if they are mid-game. Advantage estimation is done through
 [GAE](https://arxiv.org/abs/1506.02438), optimization using [PPO](https://arxiv.org/abs/1707.06347).
+
+
+## Resources
+
+* [dotaservice](https://github.com/TimZaman/dotaservice)
+* [dotaclient](https://github.com/TimZaman/dotaclient)

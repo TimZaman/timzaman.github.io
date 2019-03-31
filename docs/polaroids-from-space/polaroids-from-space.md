@@ -7,8 +7,11 @@ permalink: /polaroids-from-space
 
 # Polaroids From Space
 
+*2012*<br />
 
 ![Image](docs/polaroids-from-space/polaroids-from-space-header.jpg)
+
+-----
 
 
 I put a few cameras, GPS tracker and a Polaroid camera in a styrofoam box, attached it to a massive
@@ -41,4 +44,4 @@ Two Canon Powershots were included, and a GoPro to film it all. We had a seperat
 
 ## Resources
 
-[microprocessor code (C)](docs/polaroids-from-space/20120221_PolaroidsInSpace2_v3.pde)
+* [microprocessor code (C)](docs/polaroids-from-space/20120221_PolaroidsInSpace2_v3.pde)
