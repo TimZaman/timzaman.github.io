@@ -1,4 +1,5 @@
 ---
+layout: default
 title: About/Contact
 has_children: false
 nav_order: 10

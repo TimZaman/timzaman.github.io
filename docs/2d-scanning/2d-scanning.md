@@ -1,4 +1,5 @@
 ---
+layout: default
 title: 2D Rapid Scanning
 has_children: false
 nav_order: 20

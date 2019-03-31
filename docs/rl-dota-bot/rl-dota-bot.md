@@ -1,4 +1,5 @@
 ---
+layout: default
 title: RL Dota Bot
 has_children: false
 nav_order: 15

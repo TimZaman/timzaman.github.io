@@ -1,4 +1,5 @@
 ---
+layout: default
 title: RTI Dome
 has_children: false
 nav_order: 13

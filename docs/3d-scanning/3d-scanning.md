@@ -1,4 +1,5 @@
 ---
+layout: default
 title: 3D Scanning Paintings
 has_children: false
 nav_order: 30
