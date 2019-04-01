@@ -2,7 +2,7 @@
 layout: default
 title: 2D Rapid Scanning
 has_children: false
-nav_order: 20
+nav_order: 30
 permalink: /2d-rapid-scanning
 ---
 

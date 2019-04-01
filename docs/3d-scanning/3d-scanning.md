@@ -2,7 +2,7 @@
 layout: default
 title: 3D Scanning Paintings
 has_children: false
-nav_order: 30
+nav_order: 40
 permalink: /3d-scanning-paintings
 ---
 
