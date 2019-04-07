@@ -8,6 +8,11 @@ permalink: /2d-rapid-scanning
 
 # 2D Rapid Scanning
 
+*2010 - 2016*<br />
+
+-----
+
+
 I've created some custom hardware, and written a ton of software for digital image processing.
 Notable clients included a few Smithsonian Museums in the USA, and the MoMA in NYC. Most projects
 involved digitization of full or partial collections, with millions of samples needing digitization.

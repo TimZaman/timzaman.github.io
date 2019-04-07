@@ -49,20 +49,37 @@ Printer and 3D printing technology (c) 2013 Océ (Canon Group). I was not direct
 
 ![Image](docs/3d-scanning/3d-painting-TEDxDelft-2013.jpg)
 
-## BBC
+## Media
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/er5N1Zv3oac" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_BBC_
 
-## Timelapse
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NxfNaZ2vUSE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_At Rijksmuseum on Rembrandt and 3D scanning_
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EK-XtJopV_s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-*Scanning a Van Gogh at the Kroller Muller Museum*
-
-## Topology Renders
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wRgMB5tuS9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_Dutch TV (NOS)_
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nDmgI4tMXto" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_Detail (~10x10cm) of the Joodse Bruid (Rembrandt)_
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/owSUQ3rB-MA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_Detail (~10x10cm) of Flowers in a Blue Vase (Van Gogh)_
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nOfpNZEhRx0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_Dutch science tv programme_
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/agFwb2xF6aQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_Scanning a Rembrandt at the Mauritshuis_
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OmEsUcdyjjY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_Scanning two Rembrandts at the Rijksmuseum_ 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EK-XtJopV_s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_Scanning a Van Gogh at the Kruller Muller Museum_
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lZFzMSuLFi8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+_Presentation at REAL 2015 in San Francisco_
 
 ## Resources
 

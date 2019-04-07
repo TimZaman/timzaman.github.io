@@ -15,7 +15,7 @@ Contact:
 * email ![Image](docs/about/email.jpg)
 * twitter [tim_zaman](https://twitter.com/tim_zaman)
 
-<img src="docs/about/tzdnz-NYC-2019.jpg" alt="dotaclient schema" width="256"/>
+<img src="docs/about/tzdnz-NYC-2019.jpg" alt="Tim and Dany" width="256"/>
 
 ## Media
 
