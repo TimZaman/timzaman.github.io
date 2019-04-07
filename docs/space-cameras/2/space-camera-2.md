@@ -9,9 +9,9 @@ permalink: /space-camera-2
 
 # Space Camera 2
 
-*YYYY*<br />
+*19 Dec 2010*<br />
 
-![Image](docs/polaroids-from-space/XXX.jpg)
+![Image](docs/space-cameras/2/space-camera-2-header.jpg)
 
 -----
 
