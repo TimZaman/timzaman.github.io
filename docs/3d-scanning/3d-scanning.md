@@ -46,6 +46,9 @@ See my thesis (linked to earlier) for comprehensive information. We used a hybri
 ![Image](docs/3d-scanning/3d-scan-setup-rembrandt2.jpg)
 *Me and the setup scanning a Rembrandt at the Mauritshuis (The Hague, NL)*
 
+![Image](docs/3d-scanning/3d-scanning-maxima.jpg)
+*Casual drive-by of our Dutch Queen (Maxima) checking out my scanner*
+
 ## 3D Printing
 
 Printer and 3D printing technology (c) 2013 Océ (Canon Group). I was not directly involved in the development of the printer or the 3D pritning process. Nor did i push any buttons on the printer. The whole data-to-print part was all done by Océ. 3D Printing Technology by High Resolution Océ 3-D Fine Art Reproductions. Printer by and with 3-D printing technology from Océ. Video (c) Océ, and if shown, should be shown in entirety including proper attributions including the Océ trademark. 
