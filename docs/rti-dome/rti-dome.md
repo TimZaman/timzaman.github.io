@@ -81,6 +81,12 @@ and I'm even speaking Dutch, apologies.
 ![Image](docs/rti-dome/alan-da-vinci.jpg)
 *Windsor Castle head of collection Alan Donnithorne introducing a drawing Da Vinci*
 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1lxpLe7iEG4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+RTI of a portion of item 912616.
+(c) Windsor Castle, Paper Conservation
+This is an image of a drawing by **Leonardo Da Vinci**, where he has studied hands. You can see several fingers in the image. It was drawn with a silver-point pensil. The silver is gone, but the indentation, as you can see, remains.
+
 TODO(tzaman): add some RTI images here
 
 ## Resources
