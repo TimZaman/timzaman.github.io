@@ -61,8 +61,17 @@ off-policy. It every time the policy is updated, it is sent to the agents immedi
 adopt it, even if they are mid-game. Advantage estimation is done through
 [GAE](https://arxiv.org/abs/1506.02438), optimization using [PPO](https://arxiv.org/abs/1707.06347).
 
+## Screenshots
+
+![Image](docs/rl-dota-bot/rl-dota-bot_tensorboard-example.png)
+*A view of tensorboard, hinting to the complexity of what's going on. The trainer is in red, the
+validation workers for dire and radiant are in orange and blue.*
+
+![Image](docs/rl-dota-bot/rl-dota-bot_gcp-cluster.jpg)
+*The dota cluster running on 120 nodes without breaking a sweat*
 
 ## Resources
 
+* [experiment log](https://docs.google.com/document/d/1YKnTfsQpZLL5LEVrNSNFg7qMh0lhsEi56Y5FeJn5z6s/edit?usp=sharing) (Google Doc)
 * [dotaservice](https://github.com/TimZaman/dotaservice)
 * [dotaclient](https://github.com/TimZaman/dotaclient)
