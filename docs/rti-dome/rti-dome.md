@@ -91,6 +91,8 @@ TODO(tzaman): add some RTI images here
 
 ## Resources
 
+* [C++ code](https://github.com/TimZaman/rti), with OpenCL optimization.
+
 ### Component A
 
 Download Gerbers: ([zip](docs/rti-dome/rti-mini-dome_A_v2.zip))
