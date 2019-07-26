@@ -8,7 +8,7 @@ permalink: /about-contact
 
 # About/Contact
 
-Hello. I'm Tim Zaman, ~~22 23 24 25 26 27 28 29~~ 30 y.o. and I'm currently a software engineer for NVIDIA's deep learning ("artificial intelligence") AI-Infrastructure.
+Hello. I'm Tim Zaman, ~~22 23 24 25 26 27 28 29 30~~ 31 y.o. and I'm currently a software engineer for ~~NVIDIA's~~ Tesla's machine learning (AI) infrastructure.
 
 
 <img src="docs/about/about_zaman-klompen-ansicht-2.jpg" alt="Tim and Dany" width="512"/><br />
