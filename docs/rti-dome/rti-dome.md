@@ -33,6 +33,9 @@ The dome costs less than $100 dollars total to make. Disassembled, it fits in yo
 be mounted on any DSLR camera. I've used it to scan Aztec Codices and works by Michelangelo, Rafael
 and Da Vinci.
 
+<iframe width="736" height="414" src="https://www.youtube.com/embed/DpaUrq2ZhVw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+*Recto: Sketches for the Last Supper, and other studies. Verso: Calculations with architectural, engineering, and geometric sketches c.1492-4*
+
 ## Introduction
 
 As with any design, it took a few iterations to get it right. I started with a transparent plastic
@@ -73,8 +76,8 @@ solid. The following pictures I intermixed the two, but the idea is the same.
 
 I've made a small video to introduce how this thing works. The quality of the video is terrible,
 and I'm even speaking Dutch, apologies.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q8Gc7evFmnI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+736
+<iframe width="736" height="414" src="https://www.youtube.com/embed/Q8Gc7evFmnI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Results
 
@@ -82,7 +85,7 @@ and I'm even speaking Dutch, apologies.
 *Windsor Castle head of collection Alan Donnithorne introducing a drawing Da Vinci*
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1lxpLe7iEG4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="736" height="414" src="https://www.youtube.com/embed/1lxpLe7iEG4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 RTI of a portion of item 912616.
 (c) Windsor Castle, Paper Conservation
 This is an image of a drawing by **Leonardo Da Vinci**, where he has studied hands. You can see several fingers in the image. It was drawn with a silver-point pensil. The silver is gone, but the indentation, as you can see, remains.
