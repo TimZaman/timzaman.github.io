@@ -25,7 +25,7 @@ Contact:
 * email ![Image](docs/about/about_email.jpg)
 * twitter [tim_zaman](https://twitter.com/tim_zaman)
 
-<img src="docs/about/about_tzdnz-NYC-2019.jpg" alt="Tim and Dany" width="256"/>
+<img src="docs/about/about_tzkl-MV-2020.jpg" alt="Tim and Kay" width="256"/>
 
 
 ## Media
