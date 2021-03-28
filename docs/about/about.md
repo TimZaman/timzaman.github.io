@@ -8,11 +8,11 @@ permalink: /about-contact
 
 # About/Contact
 
-Hello. I'm Tim Zaman, ~~22 23 24 25 26 27 28 29 30~~ 31 y.o. and I'm currently a software engineer for ~~NVIDIA's~~ Tesla's machine learning (AI) infrastructure.
+Hello. I'm Tim Zaman, ~~22 23 24 25 26 27 28 29 30 31~~ 32 y.o. and I'm engineering ~~NVIDIA's~~ Tesla's machine learning (AI) infrastructure.
 
 
 <img src="docs/about/about_zaman-klompen-ansicht-2.jpg" alt="Tim and Dany" width="512"/><br />
-_Distributed clogging at scale. If you were wondering; then yes, I am from Holland._
+_Distributed clogging at scale. If you were wondering; then yes, I am from Holland - though based in SF._
 
 I am a mechanical engineer by heart (MSc biorobotics), but I am a lazy human so I just sit down on my chair and do software.
 
