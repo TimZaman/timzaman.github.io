@@ -30,6 +30,8 @@ Contact:
 
 ## Media
 
+<a href="https://fd.nl/samenleving/1440961/tesla-nerd-tim-zaman-bij-tesla-zitten-veel-knappere-koppen-dan-ik-qzf2cagbxMWR"><img src="docs/about/about-fd2022.jpg" alt="Tim in fd 2022"></a>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kShT_Z3GJSU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/er5N1Zv3oac" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
