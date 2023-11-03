@@ -25,7 +25,7 @@ Contact:
 * email ![Image](docs/about/about_email.jpg)
 * twitter [tim_zaman](https://twitter.com/tim_zaman)
 
-<img src="docs/about/about_tzklmo-2022.jpg" alt="Tim and Kay" width="384"/>
+<img src="docs/about/about_tzbeach.jpg" alt="Tim" width="384"/>
 
 
 ## Media
