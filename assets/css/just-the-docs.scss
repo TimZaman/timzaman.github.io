@@ -37,8 +37,20 @@
 @import "./code";
 @import "./utilities/utilities";
 
-body {
-  font-family: 'Futura', sans-serif;
+@font-face {
+  font-family: 'Tz2023';
+  src: url('assets/fonts/Tz2023-Regular.ttf') format('truetype'),
+       url('assets/fonts/Tz2023-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+main, .content, .main-content {
+  font-family: 'Tz2023', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .side-bar, .page-header {
+  font-family: 'Futura', fallback-fonts, sans-serif;
 }
 
 //
