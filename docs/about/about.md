@@ -8,14 +8,14 @@ permalink: /about-contact
 
 # About/Contact
 
-Hello. I'm Tim Zaman - I work at ~~NVIDIA~~ Tesla and also X (Twitter). I am responsible for the AI infra. Think sw for big iron.
+Hello. I'm Tim Zaman - I work at ~~NVIDIA Tesla and also X (Twitter)~~ Google Deepmind. I am responsible for ~~the~~ some AI infra. Think ~~sw for~~ big ~~iron~~.
 
 <img src="docs/about/about_zaman-klompen-ansicht-2.jpg" alt="ansicht klompen" width="512"/><br />
-_Distributed clogging at scale. If you were wondering; then yes, I am from Holland - though based in SF._
+_Distributed clogging at scale. If you were wondering; then yes, I am from Holland - though based in ~~SF~~ Bay Area._
 
 I am a mechanical engineer at heart (MSc biorobotics), but I am a lazy human so I just sit down on my chair and do software.
 
-I ran my own company until 2016, working with software and hardware for cameras systems serving many international customers like the Smithsonian Museum, MoMa and many others. During this, I also pursued a part-time PhD on imaging devices for cultural heritage. But I got into AI and persued that at NVIDIA and now Tesla, and also X (Twitter).
+I ran my own company until 2016, working with software and hardware for cameras systems serving many international customers like the Smithsonian Museum, MoMa and many others. During this, I also pursued a part-time PhD on imaging devices for cultural heritage. But I got into AI and persued that at NVIDIA and at Tesla and also at X (Twitter) but now they call it AGI at Google Deepmind.
 
 Radio operator callsign: **PD4TA**.
 
