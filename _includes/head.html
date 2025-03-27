@@ -5,18 +5,6 @@
   <meta name="Description" content="{{ page.description }}">
   {% endif %}
 
-  {% if site.ga_tracking != nil %}
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      // ga('create', '{{ site.ga_tracking }}', '{{ site.url }}');
-      ga('create', '{{ site.ga_tracking }}', 'auto', {'allowLinker': true});
-      ga('require', 'linker');
-      ga('linker:autoLink', ['timzaman.com', 'timzaman.nl', 'timzaman.github.io']);
-      ga('send', 'pageview');
-    </script>
-    <script async src="https://www.google-analytics.com/analytics.js"></script>
-  {% endif %}
-
   <title>{{ page.title }} - {{ site.title }}</title>
   <link rel="stylesheet" href="{{ "/assets/css/just-the-docs.css" | absolute_url }}">
 
