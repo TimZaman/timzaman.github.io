@@ -16,7 +16,7 @@
 title: TimZaman.com
 description: Tim Zaman's personal website
 # baseurl: "/docs/" # the subpath of your site, e.g. /blog
-url: "http://www.timzaman.com"
+url: "https://www.timzaman.com"
 
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
