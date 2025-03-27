@@ -3,6 +3,7 @@ layout: default
 title: Notebook
 has_children: true
 nav_order: 90
+nav_expand: true
 permalink: /notebook
 ---
 
