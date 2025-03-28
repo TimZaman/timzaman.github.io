@@ -163,6 +163,160 @@ echo "Boot image creation completed successfully!"
 # NOTE: you do not end up with an ISO, because I like hosting the filesystem through NFS
 ```
 
+(OPTIONAL) When my image came up, the DNS configuration wasn't correctly propagated into the final live image. This was fixed if you turned off/on networking, or requested a new lease, or just apply this patch (as used in script above)
+`filesystem.patch`
+```
+diff -ruN extracted_unsquash/etc/netplan/01-network-manager-all.yaml edit/etc/netplan/01-network-manager-all.yaml
+--- extracted_unsquash/etc/netplan/01-network-manager-all.yaml  2024-09-11 07:25:35.000000000 -0700
++++ edit/etc/netplan/01-network-manager-all.yaml        2025-03-26 17:16:26.028997844 -0700
+@@ -1,4 +1,16 @@
+-# Let NetworkManager manage all devices on this system
++# Let networkd manage all devices on this system
+ network:
+   version: 2
+-  renderer: NetworkManager
++  renderer: networkd
++  ethernets:
++    all-en:
++      match:
++        name: "en*"
++      dhcp4: true
++      dhcp-identifier: mac
++    all-eth:
++      match:
++        name: "eth*"
++      dhcp4: true
++      dhcp-identifier: mac
++
+```
+
+(OPTIONAL) I wanted the live image' hostname to be set from the DHCP hint (which didn't natively work) so I needed to patch this (part of initrd.patch):
+```
+diff -ruN extracted_initrd/main/scripts/casper-bottom/18hostname /home/tzaman/initrdmount/main/scripts/casper-bottom/18hostname
+--- extracted_initrd/main/scripts/casper-bottom/18hostname	2020-05-05 01:56:54.000000000 -0700
++++ /home/tzaman/initrdmount/main/scripts/casper-bottom/18hostname	2025-03-23 21:44:00.551674797 -0700
+@@ -20,7 +20,14 @@
+
+ log_begin_msg "$DESCRIPTION"
+
+-echo "$HOST" > /root/etc/hostname
++# echo "$HOST" > /root/etc/hostname  # NOTE(tzaman): I removed this
++# NOTE(tzaman): Added:
++echo "Explicitly setting hostname from dhclient.leases (content:)"
++cat /var/lib/dhcp/dhclient.leases
++DHCP_HOSTNAME=$(grep -m1 'option host-name' /var/lib/dhcp/dhclient.leases | cut -d'"' -f2)
++echo "$DHCP_HOSTNAME" > /root/etc/hostname
++echo "DHCP_HOSTNAME: $DHCP_HOSTNAME"
++
+ cat > /root/etc/hosts <<EOF
+ 127.0.0.1 localhost
+ 127.0.1.1 $HOST
+ ```
+
+ (OPTIONAL) And then to make your home directory hosted over NFS, you can do something like
+ ```
+ diff -ruN extracted_initrd/main/scripts/casper-bottom/99casperboot /home/tzaman/initrdmount/main/scripts/casper-bottom/99casperboot
+--- extracted_initrd/main/scripts/casper-bottom/99casperboot	2020-05-05 01:56:54.000000000 -0700
++++ /home/tzaman/initrdmount/main/scripts/casper-bottom/99casperboot	2025-03-24 09:46:17.940243430 -0700
+@@ -16,3 +16,24 @@
+ esac
+
+ touch /run/.casper-boot
++
++# NOTE(tzaman): Added:
++#Mount home over NFS
++echo "Mounting /home over NFS.."
++rm -rf "${rootmnt}/home"  # NOTE(tzaman): Seems to be ok.
++mkdir "${rootmnt}/home"
++mount -o rw,port=2049,nolock,proto=tcp beta.lab:/srv/nfs/home "${rootmnt}/home"
++mkdir /root/home/$USERNAME
++chroot /root chown $USERNAME:$USERNAME /home/$USERNAME/
++echo "Done mounting /home."
++
+```
+
+Finally, if you want to change your filesystem.squashfs, easiest is to unsquash this (per script above) and then do something like the below. This script is called in my main script above. The TLDR is, that you mount {sys, proc, dev, run, dev/pts}, then through `chroot` issue the commands you want, and then they'll be forever part of your ISO.
+
+`update_image.sh`
+```
+#!/bin/bash
+
+# Use the first argument as TARGET, or fallback to environment variable
+if [ -n "$1" ]; then
+    TARGET="$1"
+fi
+
+# Check if TARGET is set
+if [ -z "${TARGET}" ]; then
+    echo "Error: Target directory not specified!"
+    echo "Usage: $0 /path/to/target/directory"
+    exit 1
+fi
+
+# Cleanup function to ensure proper unmounting
+cleanup() {
+    echo "Performing cleanup..."
+    # Check if mounts exist before trying to unmount
+    if mountpoint -q ${TARGET}/dev/pts; then
+        sudo -n umount ${TARGET}/dev/pts
+    fi
+    if mountpoint -q ${TARGET}/dev; then
+        sudo -n umount ${TARGET}/dev
+    fi
+    if mountpoint -q ${TARGET}/proc; then
+        sudo -n umount ${TARGET}/proc
+    fi
+    if mountpoint -q ${TARGET}/sys; then
+        sudo -n umount ${TARGET}/sys
+    fi
+    if mountpoint -q ${TARGET}/run; then
+        sudo -n umount ${TARGET}/run
+    fi
+    echo "Cleanup complete"
+}
+
+# Set trap to call cleanup function on script exit, interrupt, or error
+trap cleanup EXIT INT TERM
+
+# Check if TARGET directory exists
+if [ ! -d "${TARGET}" ]; then
+    echo "Error: Target directory ${TARGET} does not exist!"
+    exit 1
+fi
+
+set -x
+
+# Mount necessary filesystems
+sudo -n mount -n -o bind /sys ${TARGET}/sys
+sudo -n mount -n -o bind /proc ${TARGET}/proc
+sudo -n mount -n -o bind /dev ${TARGET}/dev
+sudo -n mount -n -o bind /run ${TARGET}/run
+sudo -n mount -n -o bind /dev/pts ${TARGET}/dev/pts
+
+# Use DEBIAN_FRONTEND=noninteractive to avoid prompts
+sudo -n chroot ${TARGET} apt update
+sudo -n chroot ${TARGET} DEBIAN_FRONTEND=noninteractive apt purge -y libreoffice-* gnome-* thunderbird* firefox* xserver* rhythmbox* printer-driver-* plymouth-* nautilus-* libx11-* snap* zfsutils-linux zsys
+sudo -n chroot ${TARGET} DEBIAN_FRONTEND=noninteractive apt autoremove -y
+sudo -n chroot ${TARGET} apt install -y --no-install-recommends vim samba nfs-kernel-server rsync openssh-server git whois curl 
+
+# TODO: Install rust (`curl https://sh.rustup.rs -sSf | sh`)
+
+# Configure git globally
+sudo -n chroot ${TARGET} git config --global user.email "timbobel@gmail.com"
+sudo -n chroot ${TARGET} git config --global user.name "Tim Zaman"
+
+# Set timezone using timedatectl
+sudo -n chroot ${TARGET} timedatectl set-timezone America/Los_Angeles
+
+# Remove stuff, we're using `sh` to make sure the expansion happens inside
+sudo -n chroot ${TARGET} sh -c "rm -rf /home/*/snap /snap /var/snap /var/lib/snapd"
+sudo -n chroot ${TARGET} sh -c "rm -rf /var/cache/apt/* /var/tmp/* /tmp/*"
+sudo -n chroot ${TARGET} sh -c "rm -rf /var/crash/* /var/backups/*"
+sudo -n chroot ${TARGET} sh -c "rm -rf /home/*/.cache/*"
+sudo -n chroot ${TARGET} sh -c "rm -rf /etc/update-motd.d/*"
+```
+
+
 
 ## Netboot iPXE
 
