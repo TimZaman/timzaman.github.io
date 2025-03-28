@@ -11,6 +11,8 @@ permalink: /notebook/homelab-provisioning
 
 *2025 March*<br />
 
+![Image](docs/notebook/homelab-provisioning/00-homelab.jpg)
+
 -----
 
 After 30 years of systems administration (95% of which was amateur-hour), I've grown to keep my setups stateless, simple and minimal - without fancy sw or configs.
@@ -29,23 +31,23 @@ A simple network boot setup that:
 2. Optionally boots into nearly *any* supported distribution (centos, debian, ubuntu, windows, etc) either for installation or into an official "live image".
 
 <figure>
-  <img src="01-boot.png" alt="Boot Process" width="640px">
-  <figcaption>Initial boot splash</figcaption>
+  <img src="docs/notebook/homelab-provisioning/01-boot.png" alt="Boot Process" width="640px">
+  <figcaption>1. Initial boot splash</figcaption>
 </figure>
 
 <figure>
-  <img src="02-homelab-main.png" alt="Homelab Main" width="640px">
-  <figcaption>Custom menu that network-boots my default image in 5s</figcaption>
+  <img src="docs/notebook/homelab-provisioning/02-homelab-main.png" alt="Homelab Main" width="640px">
+  <figcaption>2. Custom menu that network-boots my default image in 5s</figcaption>
 </figure>
 
 <figure>
-  <img src="03-netboot.png" alt="Netboot Configuration" width="640px">
-  <figcaption>Netboot.xyz's interface to choose any distro to try or install to disk</figcaption>
+  <img src="docs/notebook/homelab-provisioning/03-netboot.png" alt="Netboot Configuration" width="640px">
+  <figcaption>3. Netboot.xyz's interface to choose any distro to try or install to disk</figcaption>
 </figure>
 
 <figure>
-  <img src="04-ubuntu.png" alt="Ubuntu Live Session" width="640px">
-  <figcaption>Hundreds of supported images to try or install</figcaption>
+  <img src="docs/notebook/homelab-provisioning/04-ubuntu.png" alt="Ubuntu Live Session" width="640px">
+  <figcaption>4. Hundreds of supported images to try or install</figcaption>
 </figure>
 
 ## Prerequisites
