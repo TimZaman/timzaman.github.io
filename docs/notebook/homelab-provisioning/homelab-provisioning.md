@@ -50,7 +50,89 @@ A simple network boot setup that:
 
 ## Prerequisites
 
-TODO(tzaman)
+This is a high-level overview of what you need and need to do. More concrete steps follow after.
+
+- **DHCP and TFTP server** When you PXE boot, you send a DHCP request for an ip and boot info. Your DHCP server will then offer this - but the boot information is in the form of an endpoint (server IP) and a bootloader filename on said server. A separate TFTP server is the basic and canonical way to host this file. The easiest way to co-host a DHCP and TFTP server is to use [dnsmasq](https://thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html). Below I provide my configuration here. Make sure you turn off any other DHCP server on your subnet.
+- **Boot file** iPXE is a popular, open source and fancy implementation of a PXE bootloader. You can build your own iPXE bootloader, but [netboot.xyz](https://netboot.xyz/) did all the work for you here. Netboot.xyz is a well maintained project with various iPXE menus, and can chainboot into dozens of different distros. I used `netboot.xyz.kpxe` for standard pc bios bootloading and `netboot.xyz.efi` for 64bit x86 EFI systems. I think this is what most homelab servers (non-ARM) use. Netboot.xyz provides amazing customization. There's a lot of docs, but not super clear. For my purposes, I did not need to recompile any iPXE files.
+
+## Live Image: Kernel, Initramfs, Filesystem
+
+TODO(tzaman): Describe using the live image and customization
+
+## Netboot iPXE
+
+After customizing iPXE directly, I figured I would often like to try different distro's, so I should use Netboot.xyz, which is built on iPXE itself. Netboot.xyz has a bit of an odd ansible setup to build things and customize. However, it's design is actually sound, and documentation is wide, but the docs were not super clear to me. It turns out that the design of Netboot.xyz is actually very solid and modular, and just providing the following files gave me everything I wanted:
+1. Boot into a menu that by default (5s timeout) will boot into my homelab live image
+2. Optionally boot from disk
+3. Optionally chain into the Netboot.xyz interface.
+
+`homelab.ipxe`
+```
+#!ipxe
+imgfree
+set nfs_host 192.168.10.12
+set image_name {{ image_name }}
+kernel nfs://${nfs_host}/srv/nfs/images/${image_name}/casper/vmlinuz
+initrd nfs://${nfs_host}/srv/nfs/images/${image_name}/casper/initrd
+imgargs vmlinuz ip=dhcp boot=casper netboot=nfs nfsroot=${nfs_host}:/srv/nfs/images/${image_name} username=tzaman systemd.unit=multi-user.target hostname=localhost textonly
+boot
+```
+
+`local-vars.ipxe`
+```
+#!ipxe
+set site_name homelab
+set boot_timeout 5000
+set github_user TimZaman
+```
+
+`menu.ipxe`
+```
+#!ipxe
+
+:start
+
+:main_menu
+clear custom_choice
+clear menu
+set space:hex 20:20
+set space ${space:string}
+
+menu ${site_name}
+item --gap Default:
+item homelab_ipxe ${space} Homelab live boot
+item local ${space} Boot from local hdd
+item custom_exit ${space} Continue to netboot.xyz
+isset ${menu} && set timeout 0 || set timeout ${boot_timeout}
+choose --timeout ${timeout} --default homelab_ipxe menu || goto homelab_ipxe
+echo ${cls}
+goto ${menu} ||
+goto change_menu
+
+:change_menu
+chain ${menu}.ipxe || goto error
+goto main_menu
+
+:error
+echo Error occurred, press any key to return to menu ...
+prompt
+goto main_menu
+
+:local
+echo Booting from local disks ...
+exit 1
+
+:homelab_ipxe
+echo Booting from homelab.ipxe...
+chain homelab.ipxe || echo TFTP connection failed, returning to menu in 30 seconds...
+sleep 30
+goto main_menu
+
+:custom_exit
+chain utils.ipxe
+exit
+```
+
 
 ## DHCP, DNS, TFTP
 
@@ -90,10 +172,5 @@ server=8.8.4.4
 no-resolv
 ```
 
-This configuration:
-- Assigns IP addresses in the range 192.168.10.100-200
-- (OPTIONAL) Sets static IPs and hostnames for specific machines based on their MAC addresses
-- Configures PXE boot for both legacy BIOS and UEFI systems
-- Serves the netboot.xyz bootloader via TFTP
-- Handles DNS for the local `.lab` domain
-- Forwards external DNS requests to Google DNS
+## Various Notes
+- During boot, my client id was not deterministic (see [RFC 2132 section 9.14](https://datatracker.ietf.org/doc/html/rfc2132#section-9.14) about DHCP client identifiers). That meant that it would get assigned a dynamic IP address that wasn't tied to the actual host or the actual MAC address. So I had to set `id:*` in my dnsmasq config to force usage of MAC on the server side, and on the client side set `dhcp-identifier: mac` in your netplan.
