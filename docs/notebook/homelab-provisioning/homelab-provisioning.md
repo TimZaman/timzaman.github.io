@@ -12,16 +12,15 @@ permalink: /homelab-provisioning
 *2025 March*<br />
 
 ![Image](docs/notebook/homelab-provisioning/00-homelab.jpg)
+_mumbles something about cable management_
 
 -----
 
-I've grown to keep my setups stateless, simple and minimal - without fancy sw or configs.
+My diskless homelab servers boot over network into a prebaked ramdisk (power-to-up is around 30s). I am so pleased with my setup it's worth sharing my notes. It's like booting into your favourite Docker image, but then on bare metal, though without Dockerfile convenience.
 
-But if you have a large homelab, or if you're doing open heart surgey on your sw stack (kernel, drivers, booting, configs), the iteration speed of re-imaging your servers gets really old.
+I often buy up used engineering samples of the latest CPUs, GPUs, NICs and SSDs. It's often unclear how to get them to work - but I have been quite successful just swinging at it with different OS/kernels/kernel modules/drivers/etc, and then with their specific magic incantations. It's super convenient to have a dynamic netboot setup if you're playing with this stuff.
 
-In the bay area, I often buy up used engineering samples of the latest CPUs, GPUs, NICs and SSDs. It's often unclear how to get them to work - but I have been quite succesful just swinging at it with different OS/kernels/kernel modules/drivers/etc, and then with their specific magic incantations.
-
-Iteration speed is the high order bit in getting things done, and I'm pleased with the below setup. 
+Iteration speed is the high order bit in getting things done, and your base image is so foundational, it's worth investing in.
 
 ## Overview
 
@@ -58,7 +57,6 @@ This is a high-level overview of what you need and need to do. More concrete ste
 - **NFS server** This is where the GB-sized images are hosted. This can be used booted into 'just-in-time', or with the `toram` kernel argument it'll copy the whole image from the NFS into RAM of the client.
 - **Boot file** iPXE is a popular, open source and fancy implementation of a PXE bootloader. You can build your own iPXE bootloader, but [netboot.xyz](https://netboot.xyz/) did all the work for you here. Netboot.xyz is a well maintained project with various iPXE menus, and can chainboot into dozens of different distros. I used `netboot.xyz.kpxe` for standard pc bios bootloading and `netboot.xyz.efi` for 64bit x86 EFI systems. I think this is what most homelab servers (non-ARM) use. Netboot.xyz provides amazing customization. There's a lot of docs, but not super clear. For my purposes, I did not need to recompile any iPXE files.
 
-
 ## Live Image: Kernel, Initramfs, Filesystem
 
 Since you're not writing a boot image from scratch, you have to start somewhere. Ideally, you do this in a reproducible way - so you don't want to just convert your favourite server into a bootable version. As I wanted to use Ubuntu, there are only a few offically released base images: [22.* releases](https://releases.ubuntu.com/jammy/), [24.* releases](https://releases.ubuntu.com/noble/). They only provide two types of ISOs:
@@ -69,7 +67,7 @@ Canonical sadly stopped provide very minimal ISOs a few years back.
 
 I decided to go with the Desktop image of Ubuntu 22. This has a solid live ramdisk setup builtin, and the Ubuntu 22 ISO is easier to work with, because it has only one `filesystem.squashfs` filesystem overlay. The Ubuntu 24 ISO has multiple layers, which makes it not very friendly for customizing for my purposes. The Ubuntu 24 ISO consists of (consecutive layers)
 
-1. `minimal.standard.live.squashfs` (900MB) [HIGHEST LAYER - takes presedence]
+1. `minimal.standard.live.squashfs` (900MB) [HIGHEST LAYER - takes precedence]
 2. `minimal.standard.squashfs` (500MB) - has libreoffice and thunderbird and shit?
 3. `minimal.squashfs` (1.7GB) [BOTTOM-MOST LAYER]
 
@@ -152,7 +150,7 @@ patch -p1 -d "${TMP_DIR}/extracted_unsquash" < "${TMP_DIR}/filesystem.patch"
 # Reconstitute the initrd using https://github.com/xuancong84/netboot/blob/main/mkinitrd.sh
 "../../boot_image/mkinitrd.sh" "${TMP_DIR}/extracted_initrd" "${TMP_DIR}/new-initrd"
 
-# Reconsistute the squashfs
+# Reconstitute the squashfs
 mksquashfs "${TMP_DIR}/extracted_unsquash" "${TMP_DIR}/new-filesystem.squashfs"
 
 # Put the thing back together again
