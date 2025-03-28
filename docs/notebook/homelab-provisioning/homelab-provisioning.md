@@ -15,7 +15,7 @@ permalink: /homelab-provisioning
 
 -----
 
-After 30 years of systems administration (95% of which was amateur-hour), I've grown to keep my setups stateless, simple and minimal - without fancy sw or configs.
+I've grown to keep my setups stateless, simple and minimal - without fancy sw or configs.
 
 But if you have a large homelab, or if you're doing open heart surgey on your sw stack (kernel, drivers, booting, configs), the iteration speed of re-imaging your servers gets really old.
 
@@ -31,23 +31,23 @@ A simple network boot setup that:
 2. Optionally boots into nearly *any* supported distribution (centos, debian, ubuntu, windows, etc) either for installation or into an official "live image".
 
 <figure>
-  <img src="docs/notebook/homelab-provisioning/01-boot.png" alt="Boot Process" width="640px">
   <figcaption>1. Initial boot splash</figcaption>
+  <img src="docs/notebook/homelab-provisioning/01-boot.png" alt="Boot Process" width="640px">
 </figure>
 
 <figure>
-  <img src="docs/notebook/homelab-provisioning/02-homelab-main.png" alt="Homelab Main" width="640px">
   <figcaption>2. Custom menu that network-boots my default image in 5s</figcaption>
+  <img src="docs/notebook/homelab-provisioning/02-homelab-main.png" alt="Homelab Main" width="640px">
 </figure>
 
 <figure>
-  <img src="docs/notebook/homelab-provisioning/03-netboot.png" alt="Netboot Configuration" width="640px">
   <figcaption>3. Netboot.xyz's interface to choose any distro to try or install to disk</figcaption>
+  <img src="docs/notebook/homelab-provisioning/03-netboot.png" alt="Netboot Configuration" width="640px">
 </figure>
 
 <figure>
-  <img src="docs/notebook/homelab-provisioning/04-ubuntu.png" alt="Ubuntu Live Session" width="640px">
   <figcaption>4. Hundreds of supported images to try or install</figcaption>
+  <img src="docs/notebook/homelab-provisioning/04-ubuntu.png" alt="Ubuntu Live Session" width="640px">
 </figure>
 
 ## Prerequisites
@@ -59,7 +59,110 @@ This is a high-level overview of what you need and need to do. More concrete ste
 
 ## Live Image: Kernel, Initramfs, Filesystem
 
-TODO(tzaman): Describe using the live image and customization
+Since you're not writing a boot image from scratch, you have to start somewhere. Ideally, you do this in a reproducible way - so you don't want to just convert your favourite server into a bootable version. As I wanted to use Ubuntu, there are only a few offically released base images: [22.* releases](https://releases.ubuntu.com/jammy/), [24.* releases](https://releases.ubuntu.com/noble/). They only provide two types of ISOs:
+1. A "Desktop" image (eg `ubuntu-22.04.5-desktop-amd64.iso`). This image can do live-install but also a live-session where it layers a pre-installed image on a ramdisk.
+2. A "Live Server" image (eg `ubuntu-22.04.5-live-server-amd64.iso`). This image is meant to 'live-install' but not 'live to try'.
+
+Canonical sadly stopped provide very minimal ISOs a few years back.
+
+I decided to go with the Desktop image of Ubuntu 22. This has a solid live ramdisk setup builtin, and the Ubuntu 22 ISO is easier to work with, because it has only one `filesystem.squashfs` filesystem overlay. The Ubuntu 24 ISO has multiple layers, which makes it not very friendly for customizing for my purposes. The Ubuntu 24 ISO consists of (consecutive layers)
+
+1. `minimal.standard.live.squashfs` (900MB) [HIGHEST LAYER - takes presedence]
+2. `minimal.standard.squashfs` (500MB) - has libreoffice and thunderbird and shit?
+3. `minimal.squashfs` (1.7GB) [BOTTOM-MOST LAYER]
+
+FYI: you can actually replace `minimal.standard.squashfs` with an empty squashfs, in which case it won't layer in any of the (imo) bloatware (thunderbird, libreoffice, etc).
+
+Ok so lets move on with `ubuntu-22.04.5-desktop-amd64.iso`
+
+### [Optional] Just netboot that ISO
+
+Provided you can drop into an iPXE shell (eg through Netboot.xyz), or compile your own iPXE, you can use something like this (there are many other ways too):
+
+**HTTP hosted; ISO on NFS**
+1. Take files `casper/vmlinuz` and `casper/initrd` from your ISO and put them in the root of your TFTP server.
+2. Mount your ISO somewhere (`mnt/iso`) and host it through NFS (`/etc/exports`)
+
+```
+#!ipxe
+imgfree
+kernel vmlinuz boot=casper netboot=nfs nfsroot=192.168.10.10:/mnt/iso ip=dhcp
+initrd initrd
+boot
+```
+
+### Customizing your image
+
+The boot process is a chain of events, and your ISO encapsulates most of these components. The web is full of overly complicated steps, but I've distilled it down to the below. Even this isn't minimal, I am applying various patches with personal customizations
+
+```
+#!/bin/bash
+
+set -e
+
+EXPECTED_SHA256="bfd1cee02bc4f35db939e69b934ba49a39a378797ce9aee20f6e3e3e728fefbf"
+IMAGE_NAME="image-$(date +%Y-%m-%d-%H%M%S)"
+TMP_DIR="/tmp/${IMAGE_NAME}"
+
+echo "Final image name: ${IMAGE_NAME}"
+echo "Temporary directory: ${TMP_DIR}"
+
+echo "deb http://archive.ubuntu.com/ubuntu jammy universe" | sudo tee /etc/apt/sources.list.d/universe.list
+
+sudo apt-get update
+sudo apt-get install -y xorriso squashfs-tools initramfs-tools patch
+
+mkdir -p "${TMP_DIR}"
+
+sudo mkdir -p /srv/nfs/images
+
+# Obtain the iso
+wget -O /srv/nfs/images/ubuntu-22.04.5-desktop-amd64.iso https://releases.ubuntu.com/22.04/ubuntu-22.04.5-desktop-amd64.iso
+
+echo "${EXPECTED_SHA256} /srv/nfs/images/ubuntu-22.04.5-desktop-amd64.iso" | sha256sum -c
+
+mkdir -p "${TMP_DIR}/extracted"
+mkdir -p "${TMP_DIR}/extracted_unsquash"
+mkdir -p "${TMP_DIR}/extracted_initrd"
+
+# Extract the ISO. You can't use 7z here, xorriso is built for this.
+xorriso -osirrox on -indev /srv/nfs/images/ubuntu-22.04.5-desktop-amd64.iso -extract / "${TMP_DIR}/extracted"
+
+# Unsquash the filesystem.squashfs, the final filesystem we will eventually swap/init into.
+unsquashfs -f -d "${TMP_DIR}/extracted_unsquash" "${TMP_DIR}/extracted/casper/filesystem.squashfs"
+
+# Optionally update the squashfs filesystem, eg with apt installs etc
+cp "../../boot_image/update_image.sh" "${TMP_DIR}/update_image.sh"
+chmod +x "${TMP_DIR}/update_image.sh"
+
+"${TMP_DIR}/update_image.sh" "${TMP_DIR}/extracted_unsquash"
+
+# Unpack the initramfs so we can edit it
+unmkinitramfs -v "${TMP_DIR}/extracted/casper/initrd" "${TMP_DIR}/extracted_initrd"
+
+# Optionally add patches to the initrd and the filesystem
+cp "../../boot_image/initrd.patch" "${TMP_DIR}/initrd.patch"
+cp "../../boot_image/filesystem.patch" "${TMP_DIR}/filesystem.patch"
+
+patch -p1 -d "${TMP_DIR}/extracted_initrd" < "${TMP_DIR}/initrd.patch"
+patch -p1 -d "${TMP_DIR}/extracted_unsquash" < "${TMP_DIR}/filesystem.patch"
+
+# Reconstitute the initrd using https://github.com/xuancong84/netboot/blob/main/mkinitrd.sh
+"../../boot_image/mkinitrd.sh" "${TMP_DIR}/extracted_initrd" "${TMP_DIR}/new-initrd"
+
+# Reconsistute the squashfs
+mksquashfs "${TMP_DIR}/extracted_unsquash" "${TMP_DIR}/new-filesystem.squashfs"
+
+# Put the thing back together again
+cp "${TMP_DIR}/new-filesystem.squashfs" "${TMP_DIR}/extracted/casper/filesystem.squashfs"
+cp "${TMP_DIR}/new-initrd" "${TMP_DIR}/extracted/casper/initrd"
+
+sudo mv "${TMP_DIR}/extracted" "/srv/nfs/images/${IMAGE_NAME}"
+
+echo "Boot image creation completed successfully!"
+# NOTE: you do not end up with an ISO, because I like hosting the filesystem through NFS
+```
+
 
 ## Netboot iPXE
 
