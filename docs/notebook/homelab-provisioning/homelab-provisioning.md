@@ -55,7 +55,9 @@ A simple network boot setup that:
 This is a high-level overview of what you need and need to do. More concrete steps follow after.
 
 - **DHCP and TFTP server** When you PXE boot, you send a DHCP request for an ip and boot info. Your DHCP server will then offer this - but the boot information is in the form of an endpoint (server IP) and a bootloader filename on said server. A separate TFTP server is the basic and canonical way to host this file. The easiest way to co-host a DHCP and TFTP server is to use [dnsmasq](https://thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html). Below I provide my configuration here. Make sure you turn off any other DHCP server on your subnet.
+- **NFS server** This is where the GB-sized images are hosted. This can be used booted into 'just-in-time', or with the `toram` kernel argument it'll copy the whole image from the NFS into RAM of the client.
 - **Boot file** iPXE is a popular, open source and fancy implementation of a PXE bootloader. You can build your own iPXE bootloader, but [netboot.xyz](https://netboot.xyz/) did all the work for you here. Netboot.xyz is a well maintained project with various iPXE menus, and can chainboot into dozens of different distros. I used `netboot.xyz.kpxe` for standard pc bios bootloading and `netboot.xyz.efi` for 64bit x86 EFI systems. I think this is what most homelab servers (non-ARM) use. Netboot.xyz provides amazing customization. There's a lot of docs, but not super clear. For my purposes, I did not need to recompile any iPXE files.
+
 
 ## Live Image: Kernel, Initramfs, Filesystem
 
