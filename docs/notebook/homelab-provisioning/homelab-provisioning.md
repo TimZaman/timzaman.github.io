@@ -302,8 +302,8 @@ sudo -n chroot ${TARGET} apt install -y --no-install-recommends vim samba nfs-ke
 # TODO: Install rust (`curl https://sh.rustup.rs -sSf | sh`)
 
 # Configure git globally
-sudo -n chroot ${TARGET} git config --global user.email "timbobel@gmail.com"
-sudo -n chroot ${TARGET} git config --global user.name "Tim Zaman"
+sudo -n chroot ${TARGET} git config --global user.email "$YOUR_EMAIL"
+sudo -n chroot ${TARGET} git config --global user.name "$YOUR_NAME"
 
 # Set timezone using timedatectl
 sudo -n chroot ${TARGET} timedatectl set-timezone America/Los_Angeles
@@ -433,3 +433,4 @@ no-resolv
 
 ## Various Notes
 - During boot, my client id was not deterministic (see [RFC 2132 section 9.14](https://datatracker.ietf.org/doc/html/rfc2132#section-9.14) about DHCP client identifiers). That meant that it would get assigned a dynamic IP address that wasn't tied to the actual host or the actual MAC address. So I had to set `id:*` in my dnsmasq config to force usage of MAC on the server side, and on the client side set `dhcp-identifier: mac` in your netplan.
+- If you use Netboot.xyz and you want different hosts to boot into different configs, you can change their files through adding a `HOSTNAME-${hostname}.ipxe` or `MAC-${mac:hexraw}.ipxe` file to your TFTP root and that'll take presedence.
