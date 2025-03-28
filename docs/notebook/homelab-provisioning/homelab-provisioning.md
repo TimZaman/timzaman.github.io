@@ -4,7 +4,7 @@ title: Homelab Provisioning
 has_children: false
 parent: Notebook
 nav_order: 1
-permalink: /notebook/homelab-provisioning
+permalink: /homelab-provisioning
 ---
 
 # Homelab Provisioning
