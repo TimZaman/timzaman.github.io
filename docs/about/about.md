@@ -8,7 +8,7 @@ permalink: /about-contact
 
 # About/Contact
 
-Hello. I'm Tim Zaman - I work at ~~NVIDIA Tesla and also X (Twitter)~~ Google Deepmind. I am responsible for ~~the~~ some AI infra. Think ~~sw for~~ big ~~iron~~.
+Hello. I'm Tim Zaman - I work at ~~NVIDIA Tesla and also X (Twitter) Google DeepMind~~ OpenAI. I am responsible for ~~the~~ some AI infra. Think sw and big iron.
 
 <img src="docs/about/about_zaman-klompen-ansicht-2.jpg" alt="ansicht klompen" width="512"/><br />
 _Distributed clogging at scale. If you were wondering; then yes, I am from Holland - though based in ~~SF~~ Bay Area._
