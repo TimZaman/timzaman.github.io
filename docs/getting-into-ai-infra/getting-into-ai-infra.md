@@ -107,9 +107,9 @@ A lot of people ask how to break into this field. My answer is still the same: b
 
 In 2016, I had privately forked a GitHub project from NVIDIA. I decided the work was good enough to share, so I spent a day cleaning it up and sending a few pull requests. The team in the US was hiring, and they emailed me asking if I wanted to do that work for real. So I flew to Santa Clara with my mom —no joke— and from my perspective absolutely bombed the interview. I got hired anyway. The PRs mattered.
 
-There are many ways to get a job, but there is still nothing better than a good PR. It shows that you can read an unfamiliar codebase, make a useful change, and get it over the line. Optimizing something real is good. Adding a feature that shows taste is even better, though harder.
+There are many ways to get a job, but there is still nothing better than a good PR. Start with a small bugfix, then minor optimizaiton, and then (harder) suggest a tasteful feature. Especially features result in a lot of back and forth with the devs.
 
-Being active in the GitHub community has far more signal than most networking theater. Make your work discoverable. Put your actual face on GitHub and X. It is a small thing, but I have recognized a surprising number of people in the wild just from their profile photo.
+Being active in the GitHub community has far more signal than being known at AI house parties. Make your work discoverable. Put your actual face on GitHub and X. It is a small thing, but I have recognized a surprising number of people in the wild just from their profile photo.
 
 ## Publish Your Work
 
