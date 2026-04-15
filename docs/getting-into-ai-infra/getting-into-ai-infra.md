@@ -122,3 +122,20 @@ A lot of the best opportunities in this field come from visible work.
 So wrapping up, my advice is simple: build one machine, run one real workload, turn it into a server, make it distributed, and publish what you learn along the way. It's the highest-signal route I've seen.
 
 Please reach out if you need help with your project, any other questions or if you're curious about work at OpenAI!
+
+## Addendum - Never Stop Playing
+
+The above described behaviours still apply to even the most distinguished engineers! If you're curious about something, play with it! I have learned so much just by messing around with stuff. Many of the below items are cumbersome or just plain impossible to do at work.
+
+When NVIDIA came out with BlueField, I couldn't get a straight answer what OS it's running and how it interfaces with the host device. Turned out it was running Ubuntu lol. Had to build a mount to keep it cool. The ebay listing said "Nvibia" and was placed on a white-laced grandma-style table.. wtf
+![nvibia](docs/getting-into-ai-infra/nvibia.jpg)
+![bluefield](docs/getting-into-ai-infra/bluefield.jpg)
+
+I needed more PCIe lanes run some tests out so I bought these engineering samples from Philz. Bit sketch. But like an idiot, I didn't realize how hard it was to get a solid mobo for this. And then when I got the mobo, i had to spend $1000 on the ram (which is now worth like $5000 on secondary market).
+![epycz](docs/getting-into-ai-infra/epycz.jpg)
+
+I wanted to understand thermal failure modes more, so I did many tests. On some NVMe's i tried this was actually super interesting, because in one failure case, the thermal trip will not recover until cold boot, and it would run in degraded state until then.
+![nvme-thermal](docs/getting-into-ai-infra/nvme-thermal.jpg)
+
+Liquidcooling was all the hype, so I figured I need to understand it better: flowrates, temp gradients, leaks, negative-pressure loops, etc. I learned it was extremely effective, but the adjacent mobo components would overheat due to lack of airflow.
+![watercool](docs/getting-into-ai-infra/watercool.jpg)
