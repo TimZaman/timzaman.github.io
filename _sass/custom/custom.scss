@@ -1,120 +1,260 @@
-// //
-// // Typography
-// //
-//
-// $body-font-family: -apple-system, BlinkMacSystemFont, "helvetica neue", helvetica, roboto, noto, "segoe ui", arial, sans-serif;
-// $mono-font-family: "SFMono-Regular", Menlo, Consolas, Monospace;
-// $root-font-size: 16px;         // Base font-size for rems
-// $body-line-height: 1.4;
-// $body-heading-line-height: 1.15;
-//
-// //
-// // Colors
-// //
-//
-// $white: #fff;
-//
-// $grey-dk-000: #959396;
-// $grey-dk-100: #5c5962;
-// $grey-dk-200: #44434d;
-// $grey-dk-250: #302d36 !default;
-// $grey-dk-300: #27262b;
-//
-// $grey-lt-000: #f5f6fa;
-// $grey-lt-100: #eeebee;
-// $grey-lt-200: #ecebed;
-// $grey-lt-300: #e6e1e8;
-//
-// $purple-000: #7253ed;
-// $purple-100: #5e41d0;
-// $purple-200: #4e26af;
-// $purple-300: #381885;
-//
-// $blue-000: #2c84fa;
-// $blue-100: #2869e6;
-// $blue-200: #264caf;
-// $blue-300: #183385;
-//
-// $green-000: #41d693;
-// $green-100: #11b584;
-// $green-200: #009c7b;
-// $green-300: #026e57;
-//
-// $body-background-color: $white !default;
-// $sidebar-color: $grey-lt-000 !default;
-// $code-background-color: $grey-lt-000 !default;
+@font-face {
+  font-family: "Tz2023";
+  src:
+    url("/assets/fonts/Tz2023-Regular.ttf") format("truetype"),
+    url("/assets/fonts/Tz2023-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
-// $body-text-color: $grey-dk-100 !default;
-// $body-heading-color: $grey-dk-300 !default;
-// $nav-child-link-color: $grey-dk-100 !default;
-// $link-color: $purple-000 !default;
-// $btn-primary-color: $purple-100 !default;
-// $base-button-color: #f7f7f7 !default;
-//
-// //
-// // Media queries in pixels
-// //
-//
-// $media-queries: (
-//   xs: 320px,
-//   sm: 500px,
-//   md: 740px,
-//   lg: 1120px,
-//   xl: 1400px
-// );
-//
-// //
-// // Spacing
-// //
-//
-// $spacing-unit: 1rem; // 1rem == 16px
-//
-// $spacers: (
-//   sp-0: 0,
-//   sp-1: $spacing-unit * 0.25,
-//   sp-2: $spacing-unit * 0.5,
-//   sp-3: $spacing-unit * 0.75,
-//   sp-4: $spacing-unit,
-//   sp-5: $spacing-unit * 1.5,
-//   sp-6: $spacing-unit * 2,
-//   sp-7: $spacing-unit * 2.5,
-//   sp-8: $spacing-unit * 3,
-//   sp-9: $spacing-unit * 3.5,
-//   sp-10: $spacing-unit * 4
-// );
-//
-// $sp-1: map-get($spacers, sp-1); // 0.25 rem == 4px
-// $sp-2: map-get($spacers, sp-2); // 0.5  rem == 8px
-// $sp-3: map-get($spacers, sp-3); // 0.75 rem == 12px
-// $sp-4: map-get($spacers, sp-4); // 1    rem == 16px
-// $sp-5: map-get($spacers, sp-5); // 1.5  rem == 24px
-// $sp-6: map-get($spacers, sp-6); // 2    rem == 32px
-// $sp-7: map-get($spacers, sp-7); // 2.5  rem == 40px
-// $sp-8: map-get($spacers, sp-8); // 3    rem == 48px
-// $sp-9: map-get($spacers, sp-9); // 4    rem == 48px
-// $sp-10: map-get($spacers, sp-10); // 4.5  rem == 48px
-//
-// //
-// // Borders
-// //
-//
-// $border: 1px solid;
-// $border-radius: 4px;
-// $border-color: $grey-lt-100;
-//
-// //
-// // Grid system
-// //
-//
-// $gutter-spacing: $sp-6;
-// $gutter-spacing-sm: $sp-4;
-// $nav-width: 232px;
-// $content-width: 800px;
-//
-// $media-queries: (
-//   xs: 320px,
-//   sm: 500px,
-//   md: 740px,
-//   lg: 800px,
-//   xl: 1316px
-// );
+.main-content {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.side-bar,
+.main-header,
+.site-title,
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  font-family: "Futura", "Tz2023", sans-serif;
+}
+
+.side-bar {
+  background: #efe4d2;
+}
+
+html,
+body,
+.page-wrap,
+.main {
+  background: #fbf8f2 !important;
+}
+
+.main-header,
+.site-header,
+.main,
+.main-content-wrap,
+.main-content {
+  background: #faf6ee !important;
+}
+
+.main-content,
+.main-content-wrap,
+.page-content {
+  color: #5a4430;
+}
+
+.site-title,
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  color: #6d4b2d;
+}
+
+.site-title:hover,
+.site-title:focus,
+.site-header .site-button:hover,
+.site-header .site-button:focus {
+  background: #faf6ee !important;
+  background-image: none !important;
+}
+
+a,
+a:visited,
+.main-content a,
+.main-content a:visited,
+.nav-list-link,
+.nav-list-link:visited,
+.nav-list-expander,
+.nav-list-expander:visited,
+.navigation-list-link,
+.navigation-list-link:visited,
+.site-title,
+.site-title:visited,
+.aux-nav a,
+.aux-nav a:visited,
+.breadcrumb-nav-list-item a,
+.breadcrumb-nav-list-item a:visited {
+  color: #8a623d;
+}
+
+a:hover,
+a:focus,
+.main-content a:hover,
+.main-content a:focus,
+.nav-list-link:hover,
+.nav-list-link:focus,
+.nav-list-expander:hover,
+.nav-list-expander:focus,
+.navigation-list-link:hover,
+.navigation-list-link:focus,
+.site-title:hover,
+.site-title:focus,
+.aux-nav a:hover,
+.aux-nav a:focus,
+.breadcrumb-nav-list-item a:hover,
+.breadcrumb-nav-list-item a:focus {
+  color: #a77747;
+}
+
+.nav-list .nav-list-item.active > .nav-list-link,
+.nav-list .nav-list-item > .nav-list-link.active,
+.navigation-list-item.active > .navigation-list-link,
+.navigation-list-link.active,
+.navigation-list-child-list .navigation-list-item.active > .navigation-list-link {
+  color: #5c3d24;
+  background: #eadfc8 !important;
+  box-shadow: inset 3px 0 0 #b88a56;
+}
+
+.nav-list .nav-list-item.active > .nav-list-link,
+.nav-list .nav-list-item > .nav-list-link.active {
+  color: #5c3d24 !important;
+  background: #eadfc8 !important;
+}
+
+.nav-list .nav-list-item.active > .nav-list-link::before,
+.nav-list .nav-list-item > .nav-list-link.active::before {
+  border-left-color: #b88a56 !important;
+}
+
+.nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item .nav-list-link:focus,
+.nav-list .nav-list-item .nav-list-link.active,
+.nav-list.nav-category-list > .nav-list-item > .nav-list > .nav-list-item > .nav-list-link,
+.nav-list.nav-category-list > .nav-list-item > .nav-list > .nav-list-item > .nav-list-link:hover,
+.nav-list.nav-category-list > .nav-list-item > .nav-list > .nav-list-item > .nav-list-link:focus {
+  color: #8a623d !important;
+}
+
+.nav-list-expander,
+.nav-list-expander:hover,
+.nav-list-expander:focus,
+.nav-list-expander svg,
+.nav-list-expander use,
+.nav-list-expander .icon,
+.nav-list-expander .icon use {
+  color: #8a623d !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.site-button,
+.site-button:hover,
+.site-button:focus,
+.nav-list .nav-list-item .nav-list-expander,
+.nav-list .nav-list-item .nav-list-expander:hover,
+.nav-list .nav-list-item .nav-list-expander:focus,
+.nav-list.nav-category-list > .nav-list-item > .nav-list > .nav-list-item > .nav-list-expander,
+.nav-list.nav-category-list > .nav-list-item > .nav-list > .nav-list-item > .nav-list-expander:hover,
+.nav-list.nav-category-list > .nav-list-item > .nav-list > .nav-list-item > .nav-list-expander:focus,
+.site-button .icon,
+.site-button .icon use,
+.site-button svg,
+.site-button svg path,
+.site-button svg use,
+.js-main-nav-trigger,
+.js-main-nav-trigger:hover,
+.js-main-nav-trigger:focus,
+.menu-button,
+.menu-button:hover,
+.menu-button:focus {
+  color: #8a623d !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+  border-color: rgba(138, 98, 61, 0.28) !important;
+}
+
+.site-button:hover,
+.site-button:focus,
+.nav-list-expander:hover,
+.nav-list-expander:focus,
+.js-main-nav-trigger:hover,
+.js-main-nav-trigger:focus {
+  background-color: rgba(184, 138, 86, 0.12) !important;
+}
+
+.navigation-list-link:hover,
+.navigation-list-link:focus,
+.navigation-list-link:active,
+.nav-list-link:hover,
+.nav-list-link:focus,
+.nav-list-link:active,
+.nav-list-expander:hover,
+.nav-list-expander:focus,
+.navigation-list-item.active > .navigation-list-link:hover,
+.navigation-list-item.active > .navigation-list-link:focus,
+.navigation-list-link.active:hover,
+.navigation-list-link.active:focus,
+.nav-list .nav-list-item.active > .nav-list-link:hover,
+.nav-list .nav-list-item.active > .nav-list-link:focus,
+.nav-list .nav-list-item > .nav-list-link.active:hover,
+.nav-list .nav-list-item > .nav-list-link.active:focus {
+  background: #e6d8bd !important;
+  box-shadow: inset 3px 0 0 #8a623d;
+  text-decoration-color: #8a623d;
+}
+
+.nav-list-link,
+.nav-list-expander,
+.nav-list-link:hover,
+.nav-list-link:focus,
+.nav-list-link:active,
+.nav-list-expander:hover,
+.nav-list-expander:focus,
+.nav-list .nav-list-item.active > .nav-list-link,
+.nav-list .nav-list-item > .nav-list-link.active {
+  background-image: none !important;
+}
+
+.nav-list .nav-list-item:hover,
+.nav-list .nav-list-item:focus-within,
+.nav-list .nav-list-item.active,
+.nav-list .nav-list-item.active:hover,
+.nav-list .nav-list-item.active:focus-within,
+.nav-list .nav-list-item > .nav-list-expander:hover,
+.nav-list .nav-list-item > .nav-list-expander:focus {
+  background: #e6d8bd !important;
+}
+
+.nav-list .nav-list-item > .nav-list-link,
+.nav-list .nav-list-item > .nav-list-expander {
+  background: transparent !important;
+}
+
+a:focus,
+button:focus,
+input:focus,
+.nav-list-link:focus,
+.nav-list-expander:focus,
+.navigation-list-link:focus {
+  outline-color: #a77747;
+}
+
+.btn-primary,
+.label,
+.search-result-doc .search-result-doc-title {
+  background-color: #b88a56;
+  color: #fffaf2;
+}
+
+.search-input,
+.search-result,
+.main-content hr {
+  border-color: rgba(109, 75, 45, 0.18);
+}
+
+.nav-list > li:nth-child(4),
+.navigation-list > li:nth-child(4) {
+  border-top: 1px solid rgba(109, 75, 45, 0.2);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+}

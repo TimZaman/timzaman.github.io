@@ -2,6 +2,7 @@
 layout: default
 title: RL Dota Bot
 has_children: false
+parent: Projects
 nav_order: 20
 permalink: /rl-dota-bot
 ---

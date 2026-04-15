@@ -2,6 +2,7 @@
 layout: default
 title: Polaroids From Space
 has_children: false
+parent: Projects
 nav_order: 50
 permalink: /polaroids-from-space
 ---

@@ -2,6 +2,7 @@
 layout: default
 title: RTI Dome
 has_children: false
+parent: Projects
 nav_order: 13
 permalink: /rti-dome
 ---

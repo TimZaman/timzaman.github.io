@@ -1,12 +1,12 @@
 ---
 layout: default
-title: About/Contact
+title: About
 has_children: false
 nav_order: 10
 permalink: /about-contact
 ---
 
-# About/Contact
+# About
 
 Hello. I'm Tim Zaman - I work at ~~NVIDIA Tesla and also X (Twitter) Google DeepMind~~ OpenAI. I am responsible for ~~the~~ some AI infra. Think sw and big iron.
 

@@ -2,7 +2,7 @@
 layout: default
 title: Homelab Provisioning
 has_children: false
-parent: Notebook
+parent: Blog
 nav_order: 1
 permalink: /homelab-provisioning
 ---

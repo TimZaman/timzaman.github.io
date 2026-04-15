@@ -2,6 +2,7 @@
 layout: default
 title: Space Cameras
 has_children: true
+parent: Projects
 nav_order: 60
 permalink: /space-cameras
 ---

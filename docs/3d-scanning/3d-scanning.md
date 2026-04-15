@@ -2,6 +2,7 @@
 layout: default
 title: 3D Scanning Paintings
 has_children: false
+parent: Projects
 nav_order: 40
 permalink: /3d-scanning-paintings
 ---
@@ -94,4 +95,3 @@ _Presentation at REAL 2015 in San Francisco_
 * TODO(tzaman): Add Matlab code
 * TODO(tzaman): Add C++ code
 * TODO(tzaman): Add pcb (gerber) files
-

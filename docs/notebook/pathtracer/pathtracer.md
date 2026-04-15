@@ -2,8 +2,8 @@
 layout: default
 title: Pathtracer
 has_children: false
-parent: Notebook
-nav_order: 1
+parent: Blog
+nav_order: 2
 permalink: /pathtracer
 ---
 
