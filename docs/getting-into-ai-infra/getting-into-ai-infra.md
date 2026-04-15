@@ -4,14 +4,14 @@ title: Getting Into AI Infra
 has_children: false
 parent: Blog
 nav_order: 2
-permalink: /gpu-servers
+permalink: /getting-into-ai-infra
 ---
 
 # Getting Into AI Infra
 
 *2026 April*<br />
 
-![Image](docs/gpu-servers/tim-dc.jpg)
+![Image](docs/getting-into-ai-infra/tim-dc.jpg)
 _me on the ladder, during epic datacenter refactor_
 
 -----
@@ -26,9 +26,9 @@ This post is my version of how I made my way there, and a fun way to catch up.
 
 I would love for more people to get into AI infra. The world needs an enormous amount of compute, which means it also needs more engineers who know how to build, run, and reason about it. That includes newcomers, researchers, and people working more on [Infra To The AI](https://www.youtube.com/watch?v=wA9kQuWkU7I) who want to step closer to the workload itself.
 
-The fastest way I know to learn this field is to build real systems yourself. Start with one machine. Put a real workload on it. Turn that machine into a server. Then learn what changes when you have more than one. At each step, the abstractions get less abstract. You can't learn this by reading, this is why so many infra and datacenter legends are so seasoned. _Doing_ it will force you to get a complete and connected comprehension of the craft.
+The fastest way I know to learn this field is to build real systems yourself. Start with one machine. Put a real workload on it. Turn that machine into a server. Then learn what changes when you have more than one. At each step, the abstractions get less abstract. Because there's physicalities involved, you can't learn this by just reading. _Doing_ it will force you to get a complete and connected comprehension of the craft.
 
-![IMG_2314](docs/gpu-servers/dwight.jpg)
+![IMG_2314](docs/getting-into-ai-infra/dwight.jpg)
 
 ## Build Performance Intuition
 
@@ -40,7 +40,7 @@ That is why I think building your own PC is such a good first step. Once you ass
 
 If you cannot explain exactly why you chose one GPU over another, how are you going to answer the professional version of the same question later? H100? B200? GB200? Which GPUs should we buy for this workload? This is exactly where the infra and the AI come together.
 
-![IMG_2314](docs/gpu-servers/name-component.jpg)
+![IMG_2314](docs/getting-into-ai-infra/name-component.jpg)
 _Can you name each component?_
 
 At Tesla Autopilot, when we were doing early candidate screens for [@karpathy](https://x.com/karpathy)'s team, one of the prompts was simply a picture of a machine and the candidate had to point out where the RAM was. Great low-pass filter.
@@ -61,7 +61,7 @@ Around 2009 I got deep into computer vision and found that GPUs were dramaticall
 
 Later, in 2019, I played a lot of Dota with my NVIDIA friends and wrote an [RL Dota Bot](https://timzaman.com/rl-dota-bot), in the spirit of OpenAI's project. I learned a ton from building it, and it gave me something concrete to talk about over coffee with legendary [@gdb](https://x.com/gdb).
 
-![IMG_2314](docs/gpu-servers/gaming.jpg)
+![IMG_2314](docs/getting-into-ai-infra/gaming.jpg)
 _NVIDIA After Hours Gaming League - won from Intel and AMD but Google whooped our ass._
 
 Especially if you want to put the AI into AI infra, you should also [understand backprop](https://karpathy.medium.com/yes-you-should-understand-backprop-e2f06eab496b) at least at a high level, and learn one Python ML framework -cough- Pytorch -cough- well enough to be dangerous.
@@ -74,7 +74,7 @@ Conceptually, this is less exotic than it sounds. In many cases, you are just mo
 
 I got my first GPU server in 2011. At the time, I was building a website where you could upload a photo and get camera calibration results back.
 
-![IMG_2314](docs/gpu-servers/dell-gpu.jpg)
+![IMG_2314](docs/getting-into-ai-infra/dell-gpu.jpg)
 _2011 - My First GPU Server._
 
 I bought a Dell server because it had room for the GPUs. I moved my gaming cards into it, messed with the power connectors —still an issue in 2026— and I felt so pro. I later upgraded it to dual GTX 670s, and that server stayed in operation until 2023 (12y!!).
@@ -83,7 +83,7 @@ Fwiw, someone else did the sysadmin on this one, I had a lot to learn. That was 
 
 _Pro tip:_ racks on wheels are underrated. U can get one that fits under a desk, holds multiple nodes, and gives you space for shelves, drawers, switches, and all the other hardware that seems to appear once you start doing this seriously.
 
-![IMG_2314](docs/gpu-servers/taco.jpg)
+![IMG_2314](docs/getting-into-ai-infra/taco.jpg)
 _Tacocat taking up that rack space_
 
 ## Learn What Changes When N > 1
@@ -94,7 +94,7 @@ Once you have a server, try to put it somewhere that is not your house. Colocate
 
 Managing one server can already be toil. Managing more than one forces a different set of questions. How do the nodes boot? How do you reach them when something goes wrong? What happens to your workload if the network drops for ten seconds and then comes back? What state lives on the node, and what state lives in the control plane? What is the blast radius when the scheduler, metadata store, or shared storage has a bad day?
 
-![IMG_2314](docs/gpu-servers/rpi.jpg)
+![IMG_2314](docs/getting-into-ai-infra/rpi.jpg)
 _2018 - My 10 Watt Cluster._
 
 I had used many clusters at work by that point, especially at NVIDIA, but building one from scratch yourself is different. That is when tools like k8s stop being resume slop and start becoming ways to reason about placement, failure, recovery, and remote operations. The point is not to worship any particular orchestrator. The point is to experience firsthand that distributed systems are mostly about the weird cases.
@@ -120,3 +120,5 @@ Do not be too shy about sharing what you build. Open-source things. Contribute b
 A lot of the best opportunities in this field come from visible work.
 
 So wrapping up, my advice is simple: build one machine, run one real workload, turn it into a server, make it distributed, and publish what you learn along the way. It's the highest-signal route I've seen.
+
+Please reach out if you need help with your project, any other questions or if you're curious about work at OpenAI!
