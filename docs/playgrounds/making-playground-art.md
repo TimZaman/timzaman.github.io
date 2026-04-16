@@ -32,7 +32,7 @@ In Holland, new building projects had to spend 1% of their budget on art. My dad
 
 ## Artist Provenance
 
-Honore, my great-grandfather, made his living in the wooden clogs business. When people stopped wearing clogs, he went badly out of business. My dad used to say he was the last kid at school still wearing them in the 1950s.
+Honore, my great-grandfather, made his living in the wooden clogs business. When people stopped wearing clogs, he went badly out of business. (This is why my father was the only kid at school still wearing wooden clogs into the 60s.)
 
 Theo, my grandfather, pivoted to importing raw lumber. Then that trade changed too, as milling moved closer to the source, and he also went out of business.
 
