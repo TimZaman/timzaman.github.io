@@ -11,6 +11,7 @@ permalink: pretty
 favicon_ico: "/favicon.ico"
 
 search_enabled: false
+ga_tracking: G-CK6YBRC7X6
 
 exclude:
   - .sass-cache/
