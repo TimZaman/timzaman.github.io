@@ -16,7 +16,7 @@ _My dad's friends doing a post-assembly trial run, 1980s_
 
 -----
 
-When my dad passed away, I was going through his things and found a worn set of books about playgrounds. That caught me off guard. I had never really thought about who designed playgrounds, or why someone would write books about them. They were just there.
+When my dad passed away, I was going through his things and found a worn set of books about playgrounds. Odd. I had never really thought about who designed playgrounds, or why someone would write books about them. They were just there.
 
 But my father had built them. In the 1980s, he designed wooden play sculptures for schools in the Netherlands: structures that worked as playground equipment, but were also artworks. He did this on the side while teaching highschool (Fontein Mavo, Bussum).
 
