@@ -3,7 +3,7 @@ layout: default
 title: Homelab Provisioning
 has_children: false
 parent: Blog
-nav_order: 1
+nav_order: 3
 permalink: /homelab-provisioning
 ---
 

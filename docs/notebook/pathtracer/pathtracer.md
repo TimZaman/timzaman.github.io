@@ -3,7 +3,7 @@ layout: default
 title: Pathtracer
 has_children: false
 parent: Blog
-nav_order: 2
+nav_order: 4
 permalink: /pathtracer
 ---
 
