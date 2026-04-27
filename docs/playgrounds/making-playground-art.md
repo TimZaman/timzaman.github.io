@@ -111,8 +111,8 @@ _Wim-Sjoerd van Rosmalen_
 <table class="playground-meta">
   <tbody>
     <tr><th scope="row">Named by Artist</th><td><em>Unknown</em></td></tr>
-    <tr><th scope="row">Location</th><td><em>Unknown</em></td></tr>
-    <tr><th scope="row">Built</th><td><em>Unknown</em></td></tr>
+    <tr><th scope="row">Location</th><td>Basisschool De Poortwachter, Alkmaar (Schermereiland), Netherlands</td></tr>
+    <tr><th scope="row">Built</th><td><em>1983</em></td></tr>
     <tr><th scope="row">Status</th><td><em>Unknown</em></td></tr>
   </tbody>
 </table>
@@ -131,8 +131,8 @@ _Wim-Sjoerd van Rosmalen_
 <table class="playground-meta">
   <tbody>
     <tr><th scope="row">Named by Artist</th><td><em>Unknown</em></td></tr>
-    <tr><th scope="row">Location</th><td><em>Unknown</em></td></tr>
-    <tr><th scope="row">Built</th><td><em>Unknown</em></td></tr>
+    <tr><th scope="row">Location</th><td>Basisschool De Molengang, Heerhugowaard, Netherlands</td></tr>
+    <tr><th scope="row">Built</th><td><em>1987</em></td></tr>
     <tr><th scope="row">Status</th><td><em>Unknown</em></td></tr>
   </tbody>
 </table>
